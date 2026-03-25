@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Azhari Mobile Repairing</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a7c5c">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Azhari Mobile">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -1007,6 +1013,18 @@ function generateStatement(){
 <br>
 <button onclick="window.print()" style="padding:10px 24px;background:#0a5c42;color:white;border:none;border-radius:6px;font-size:13px;cursor:pointer;margin-right:8px;">🖨 Print / Save PDF</button>
 <button onclick="window.close()" style="padding:10px 24px;background:#eee;color:#333;border:none;border-radius:6px;font-size:13px;cursor:pointer;">Close</button>
+
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load', function(){
+    navigator.serviceWorker.register('sw.js').then(function(reg){
+      console.log('SW registered');
+    }).catch(function(err){
+      console.log('SW failed: ', err);
+    });
+  });
+}
+</script>
 </body>
 </html>`;
 
@@ -1077,6 +1095,18 @@ ${b.notes?`<div style="font-size:10px;margin-top:3px;">Note: ${b.notes}</div>`:'
 <div class="tr total-row"><span>TOTAL</span><span>Rs.${total.toLocaleString('en-IN')}</span></div>
 <div class="tl"></div>
 <div class="tc info" style="margin-top:4px;">Thank you! Visit again.</div>
+
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load', function(){
+    navigator.serviceWorker.register('sw.js').then(function(reg){
+      console.log('SW registered');
+    }).catch(function(err){
+      console.log('SW failed: ', err);
+    });
+  });
+}
+</script>
 </body>
 </html>`;
 }
@@ -1128,6 +1158,18 @@ function downloadBill(){
 </head>
 <body>
 ${billHtml}
+
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load', function(){
+    navigator.serviceWorker.register('sw.js').then(function(reg){
+      console.log('SW registered');
+    }).catch(function(err){
+      console.log('SW failed: ', err);
+    });
+  });
+}
+</script>
 </body>
 </html>`);
   printWindow.document.close();
@@ -1431,5 +1473,17 @@ function showToast(msg,type=''){
     </div>
   </div>
 </div>
+
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load', function(){
+    navigator.serviceWorker.register('sw.js').then(function(reg){
+      console.log('SW registered');
+    }).catch(function(err){
+      console.log('SW failed: ', err);
+    });
+  });
+}
+</script>
 </body>
 </html>
